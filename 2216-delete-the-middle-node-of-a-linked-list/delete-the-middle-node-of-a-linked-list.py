@@ -25,4 +25,5 @@ class Solution:
             if step==mid:
                 dummy.next=None
                 prev.next=nextt
+    
         return head
