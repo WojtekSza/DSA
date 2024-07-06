@@ -16,20 +16,14 @@ class Solution:
                 print(node.val)
                 print(level)
                 if level%2!=0:
-                    print('level%2!=0')
                     if node.val%2==0:
                         return False
-                        print('--->1')
                     if sub_sum and sub_sum[-1]>=node.val:
-                        print('--->2')
                         return False
                 elif level%2==0:
-                    print('level%2==0')
-                    if node.val%2!=0:
-                        print('--->3')                        
+                    if node.val%2!=0:                        
                         return False
                     if sub_sum and sub_sum[-1]<=node.val:
-                        print('--->4')
                         return False
                 sub_sum.append(node.val)
                 if node.left:
