@@ -1,16 +1,24 @@
 class Solution:
-    def pathSum(self, root: Optional[TreeNode], target: int) -> int:
-        def dfs(r,t,include):
-            if r is None: return 0
-            count=0
-            if r.val==t: 
-                count+=1
-            
-            count += dfs(r.left,t-r.val,True) + dfs(r.right,t-r.val,True)
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
 
-            if not include: 
-                count += dfs(r.left,t,False) + dfs(r.right,t,False)
-            
+        # prefix sums encountered in current path
+        sums = defaultdict(int)
+        sums[0] = 1
+
+        def dfs(root, total):
+            count = 0
+            if root:
+                total += root.val
+                # Can remove sums[currSum-targetSum] prefixSums to get target
+                count = sums[total-targetSum]
+
+                # Add value of this prefixSum
+                sums[total] += 1
+                # Explore children
+                count += dfs(root.left, total) + dfs(root.right, total)
+                # Remove value of this prefixSum (path's been explored)
+                sums[total] -= 1
+
             return count
 
-        return dfs(root,target,False)
+        return dfs(root, 0)
