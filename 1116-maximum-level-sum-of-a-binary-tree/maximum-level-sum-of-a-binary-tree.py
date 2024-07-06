@@ -23,9 +23,7 @@ class Solution:
                     queue.append(node.right)
             ans.append(sub_sum)
             sum_max=max(sum_max,sub_sum)
-        print(sum_max)
         for i,val in enumerate(ans):
-            print(val)
             if val==sum_max:
                 return i+1
         return 0
