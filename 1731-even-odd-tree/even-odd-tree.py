@@ -13,8 +13,6 @@ class Solution:
             sub_sum=[]
             for _ in range(len(queue)):
                 node=queue.popleft()
-                print(node.val)
-                print(level)
                 if level%2!=0:
                     if node.val%2==0:
                         return False
