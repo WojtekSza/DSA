@@ -9,7 +9,7 @@ class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         # Recursive Solution
         if not root:
-            return TreeNode(-1)
+            return root
 
         curr_node = root
 
