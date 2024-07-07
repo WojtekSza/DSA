@@ -10,9 +10,6 @@ class Solution:
         # Recursive Solution
         if not root:
             return root
-
-        curr_node = root
-
         if p.val < root.val and q.val < root.val:
             return self.lowestCommonAncestor(root.left, p, q)
         elif p.val > root.val and q.val > root.val:
