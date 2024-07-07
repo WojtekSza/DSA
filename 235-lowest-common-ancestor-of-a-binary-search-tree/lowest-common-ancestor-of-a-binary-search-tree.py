@@ -13,9 +13,9 @@ class Solution:
 
         curr_node = root
 
-        if p.val < curr_node.val and q.val < curr_node.val:
-            return self.lowestCommonAncestor(curr_node.left, p, q)
-        elif p.val > curr_node.val and q.val > curr_node.val:
-            return self.lowestCommonAncestor(curr_node.right, p, q)
+        if p.val < root.val and q.val < root.val:
+            return self.lowestCommonAncestor(root.left, p, q)
+        elif p.val > root.val and q.val > root.val:
+            return self.lowestCommonAncestor(root.right, p, q)
         else:
-            return curr_node
+            return root
