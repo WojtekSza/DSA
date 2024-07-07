@@ -7,7 +7,6 @@ class Solution:
         for x,y in trust:
             people[x]-=1
             people[y]+=1
-        print(people)
         for i,j in people.items():
             if j==n-1:
                 return i
